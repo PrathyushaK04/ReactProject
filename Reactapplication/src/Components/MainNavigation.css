@@ -1,0 +1,16 @@
+.navigation {
+	background-color: #001f3f;
+	width:  200px;
+	flex-shrink:  0;
+	padding-top: 40px;
+}
+
+.link {
+	color: #AAAAAA;
+	display: flex;
+	font-size: 18px;
+	line-height: 20px;
+	text-decoration: none;
+	margin: 20px;
+	border-bottom: solid 1px;
+}
