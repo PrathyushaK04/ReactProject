@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -10,12 +10,6 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    }),
-    new MiniCssExtractPlugin({filename: '[name].css'}),
-  ],
   module: {
     rules: [
       {
@@ -26,25 +20,31 @@ module.exports = {
         }
       },
       {
-      test: /\.css$/,
+      test: /(\.css|\.scss)$/,
       exclude: [path.resolve(__dirname, "node_modules")], 
-      use: [
+      use: ExtractTextPlugin.extract({
+        use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: '../'
-            }
-          }, {
             loader: "css-loader",
             options: {sourceMap: true}
           }, {
             loader: "postcss-loader",
             options: {sourceMap: true, plugins: () => [autoprefixer]}
+          }, {
+            loader: "sass-loader",
+            options: {sourceMap: true}
           }
         ]
+      })
     },
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    }),
+    new ExtractTextPlugin("[name].css")
+  ],
   devServer: {
     historyApiFallback: true,
     contentBase: './',

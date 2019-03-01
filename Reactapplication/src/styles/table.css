@@ -1,9 +1,0 @@
-//css loader to be fixed for nested styles
-
-.table {
-	width: 800px;
-	background-color: #fefefe;
-	table-layout: fixed;
-	border-radius: 3px;
-	margin: 100px;
-}

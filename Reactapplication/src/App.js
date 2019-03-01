@@ -5,8 +5,9 @@ import MainNavigation from './Components/MainNavigation.js';
 import Content from './Components/Content.js';
 
 import {routes} from './routes.js';
-import './styles/app.css';
-import './styles/table.css';
+import './styles/app.scss';
+import './styles/table.scss';
+import './styles/form.scss';
 
 
 class App extends Component {

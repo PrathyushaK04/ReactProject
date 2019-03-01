@@ -6,13 +6,13 @@ export const routes = [
   {
     label: 'Dashboard',
     pageTitle: 'Dashboard',
-    path: '/Dashboard',
+    path: '/dashboard',
     component: DashboardIndex
   },
   {
     label: 'Users',
     pageTitle: 'Users',
-    path: '/Users',
+    path: '/users',
     component: UserIndex,
   }
 ];
